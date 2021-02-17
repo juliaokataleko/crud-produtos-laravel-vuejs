@@ -7,6 +7,7 @@
  - Digitar o camando "npm install e npm run dev", para instalar as dependências do front
  - Digitar o comando "cp .env.example .env" para colocar o ficheiro .env no projeto.
  - Rodar o comando "php artisan key:generate" para gerar a chave do projeto. 
+ - Criar o ficheiro "database.sqlite" na pasta "database" e rodar o comando "php artisan serve" para inicializar o banco de dados.
  - Rodar o comando "php artisan serve", para colocar o projeto no ar.
 
  ### Tecnologias
