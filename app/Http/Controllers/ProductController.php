@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::orderBy('created_ad', 'DESC')->get();
+        return Product::orderBy('id', 'DESC')->get();
     }
 
     /**
@@ -36,8 +36,9 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $newProduct = new Product;
-        $newProduct->name = $request->item('name');
-        // $newProduct->price = $request->item('price');
+        $newProduct->name = $request->product['name'];
+        $newProduct->price = $request->product['price'];
+        $newProduct->image = $request->product['image'];
         $newProduct->save();
 
         return $newProduct;
@@ -74,7 +75,51 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find( $id );
+
+        if($product) 
+        {
+            $product->name = $request->product['name'];
+            $product->price = $request->product['price'];
+            $product->image = $request->product['image'];
+            $product->available = $request->product['available'] ? true : false;
+            $product->status = $request->product['status'] ? true : false;
+            $product->save();
+
+            return $product;
+        }
+
+        return "Produto não encontrado.";
+    }
+
+    public function changeStatus(Request $request, $id)
+    {
+        $product = Product::find( $id );
+
+        if($product) 
+        {
+            $product->status = $request->product['status'] ? true : false;
+            $product->save();
+
+            return $product;
+        }
+
+        return "Produto não encontrado.";
+    }
+
+    public function changeAvailableStatus(Request $request, $id)
+    {
+        $product = Product::find( $id );
+
+        if($product) 
+        {
+            $product->available = $request->product['available'] ? true : false;
+            $product->save();
+
+            return $product;
+        }
+
+        return "Produto não encontrado.";
     }
 
     /**
@@ -85,6 +130,14 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find( $id );
+
+        if($product) 
+        {
+            $product->delete();
+            return "Produto excluído com sucesso.";
+        }
+
+        return "Produto não encontrado.";
     }
 }

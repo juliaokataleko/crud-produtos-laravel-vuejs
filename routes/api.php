@@ -18,7 +18,7 @@ use App\Http\Controllers\ProductController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
- 
+
 Route::get('/products', [ProductController::class, 'index']);
 
 Route::prefix('/product')->group(function() {
@@ -26,3 +26,6 @@ Route::prefix('/product')->group(function() {
     Route::put('/{id}', [ProductController::class, 'update']);
     Route::delete('/{id}', [ProductController::class, 'destroy']);
 });
+
+Route::post('/product/{id}/change-status', [ProductController::class, 'changeStatus']);
+Route::post('/product/{id}/change-available-status', [ProductController::class, 'changeAvailableStatus']);
