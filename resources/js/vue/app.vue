@@ -3,7 +3,7 @@
     <div class="heading bg-header-color">
       <div class="container">
         <div class="top">
-          <div id="title"><h2>Mobazon</h2></div>
+          <div id="title"><h2>CRUD Produtos</h2></div>
           <span><a href="#">Sobre</a></span>
         </div>
       </div>

@@ -30850,7 +30850,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "top" }, [
           _c("div", { attrs: { id: "title" } }, [
-            _c("h2", [_vm._v("Mobazon")])
+            _c("h2", [_vm._v("CRUD Produtos")])
           ]),
           _vm._v(" "),
           _c("span", [_c("a", { attrs: { href: "#" } }, [_vm._v("Sobre")])])
